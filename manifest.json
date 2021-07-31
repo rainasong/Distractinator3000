@@ -6,6 +6,12 @@
   "background": {
     "service_worker": "background.js"
   },
+  "web_accessible_resources": [
+    {
+      "resources": ["components/dinoGame/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
   "permissions": [
     "activeTab",
     "alarms",
@@ -81,12 +87,17 @@
   "options_page": "options.html",
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
+      "matches": ["<all_urls>"],
       "js": [
+        "components/helpers/promises.js",
+        "components/helpers/state.js",
+        "components/helpers/coins.js",
+        "components/helpers/confetti.js",
         "components/redditScroll/index.js",
-        "popup.js",
+        "components/facebookScroll/index.js",
+        "components/instagramClick/index.js",
+        "components/canvasDinoGame/index.js",
+        "components/youtubeView/index.js",
         "onPageLoad.js"
       ]
     }
