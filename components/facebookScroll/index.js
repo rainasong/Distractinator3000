@@ -2,7 +2,7 @@ let facebookMinutesRemaining = 20;
 let facebookSecondsRemaining = 0;
 let facebookTimeRemaining;
 let facebookCompleted = false;
-const facebookCoinsAvailableToWin = 10;
+const facebookCoinsAvailableToWin = 1000;
 
 async function facebookScroll() {
   facebookTimeRemaining = document.createElement("p");
@@ -16,7 +16,10 @@ async function facebookStartCountdown() {
       if (facebookSecondsRemaining === 0 && facebookMinutesRemaining !== 0) {
         facebookSecondsRemaining = 59;
         facebookMinutesRemaining--;
-      } else if (facebookSecondsRemaining >= 1 && facebookMinutesRemaining >= 0) {
+      } else if (
+        facebookSecondsRemaining >= 1 &&
+        facebookMinutesRemaining >= 0
+      ) {
         facebookSecondsRemaining--;
       }
       facebookTimeRemaining.innerText = `Time remaining: ${facebookMinutesRemaining}:${facebookSecondsRemaining.toLocaleString(
@@ -28,7 +31,11 @@ async function facebookStartCountdown() {
       )}`;
     }
 
-    if (!facebookCompleted && facebookSecondsRemaining <= 0 && facebookSecondsRemaining <= 0) {
+    if (
+      !facebookCompleted &&
+      facebookSecondsRemaining <= 0 &&
+      facebookSecondsRemaining <= 0
+    ) {
       addCoins(facebookCoinsAvailableToWin).then((res) => {
         showConfetti(facebookCoinsAvailableToWin, res);
       });
