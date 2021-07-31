@@ -16,15 +16,16 @@ function checkForClicks() {
   for (const storyArrow of storyArrows) {
     storyArrow.addEventListener("click", onStoryClick);
   }
-
-  if (clicks > clickTarget) {
-    addCoins(100);
-  }
-
-  // Increase click target so the user can earn more coins
-  clickTarget += 10;
 }
 
-function onStoryClick() {
+async function onStoryClick() {
   clicks++;
+
+  if (clicks >= clickTarget) {
+    const balance = await addCoins(100);
+    showConfetti(100, balance);
+
+    // Increase click target so the user can earn more coins
+    clickTarget += 10;
+  }
 }

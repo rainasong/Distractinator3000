@@ -22,6 +22,7 @@ function showConfetti(coinsWon, balance) {
         const $elem = document.createElement("div");
         showConfetti.$elem = $elem;
 
+        $elem.style.all = "unset";
         $elem.style.position = "fixed";
         $elem.style.height = "100%";
         $elem.style.width = "100%";
@@ -30,20 +31,27 @@ function showConfetti(coinsWon, balance) {
         $elem.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
         $elem.style.transition = "opacity 0.2s";
         $elem.style.opacity = "0";
+        $elem.style.zIndex = "99999998";
+        $elem.style.padding = "0";
+        $elem.style.margin = "0";
+        $elem.style.fontSize = "16px";
+        $elem.style.fontWeight = "normal";
 
         // centered element (with white background)
         const $main = document.createElement("div");
 
+        $main.style.all = "unset";
         $main.style.position = "absolute";
         $main.style.width = "calc(100% - 20px)";
         $main.style.maxWidth = "500px";
-        $main.style.zIndex = "999999999";
+        $main.style.zIndex = "99999999";
         $main.style.top = "40%";
         $main.style.left = "50%";
         $main.style.transform = "translate(-50%, -50%)";
         $main.style.borderRadius = "8px";
         $main.style.color = "black";
         $main.style.padding = "40px 20px 20px 20px";
+        $main.style.margin = "0";
     
         // confetti background
         $main.style.backgroundColor = "white";
@@ -54,20 +62,32 @@ function showConfetti(coinsWon, balance) {
         // heading
         const $h1 = document.createElement("h1");
         $h1.innerText = `You won ${coinsWon} coins!`;
+        $h1.style.all = "unset";
+        $h1.style.display = "block";
+        $h1.style.fontSize = "1.3em";
+        $h1.style.fontWeight = "bold";
+        $h1.style.padding = "0";
+        $h1.style.margin = "0";
 
         // text
         const $p = document.createElement("p");
         $p.innerText = `Congratulations on completing the challenge - you now have ${balance} coins! `
             + "Visit another webpage to win more, or open the extension to spend your winnings :)";
+        $p.style.all = "unset";
+        $p.style.padding = "0";
+        $p.style.display = "block";
+        $p.style.margin = "1em 0";
 
         // button
         const $button = document.createElement("div");
         $button.innerText = "Got it!";
+        $button.style.all = "unset";
         $button.style.padding = "10px 20px 10px 20px";
         $button.style.borderRadius = "4px";
         $button.style.color = "white";
         $button.style.display = "inline-block";
         $button.style.backgroundColor = "rgb(0, 119, 204)";
+        $button.style.margin = "0";
 
         // close popup when clicked off it, or clicking on the button
         $elem.addEventListener("click", ev => {
