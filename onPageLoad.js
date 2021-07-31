@@ -5,6 +5,7 @@ const availableTasks = [
   [youtubeView, ["youtube.com", "youtu.be"]],
   [canvasDinoGame, ["canvas.auckland.ac.nz"]],
   [facebookScroll, ["facebook.com"]],
+  [piazzaSpaceInvaders, ["piazza.com"]],
 ];
 
 const selectedTasks = availableTasks;
