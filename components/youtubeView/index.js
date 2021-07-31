@@ -7,6 +7,11 @@ let timeViewed = 0;
 let timer;
 
 async function youtubeView() {
+  if (progressBar == null) {
+    console.log("youtubeView skipping because it only runs on video pages");
+    return;
+  }
+
   startingTime = progressBar.getAttribute("aria-valuenow");
 
   timer = window.setInterval(updateTimeElapsed, 1000);

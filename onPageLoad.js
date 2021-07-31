@@ -4,6 +4,7 @@ const availableTasks = [
   [instagramClick, ["instagram.com"]],
   [youtubeView, ["youtube.com", "youtu.be"]],
   [canvasDinoGame, ["canvas.auckland.ac.nz"]],
+  [facebookScroll, ["facebook.com"]],
 ];
 
 const selectedTasks = availableTasks;
