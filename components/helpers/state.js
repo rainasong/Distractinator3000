@@ -22,16 +22,17 @@
  * Retrieve state value.
  * @param {string} namespace The calling function's name (e.g. `redditScroll`).
  * @param {string} key The thing to get (e.g. `preferredColor`).
+ * @param {any} defaultValue Default is returned if key does not exist.
  * @returns {Promise<any>}
  */
-function getState(namespace, key) {
+function getState(namespace, key, defaultValue=null) {
     const { promise, resolve } = makePromise();
     
     key = `${namespace}#${key}`;
 
     chrome.storage.sync.get([key], (result) => {
         if (result[key] == null) {
-            resolve(null);
+            resolve(defaultValue);
         }
         else {
             resolve(JSON.parse(result[key]));
