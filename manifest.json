@@ -89,7 +89,8 @@
         "components/helpers/confetti.js",
         "components/redditScroll/index.js",
         "components/facebookScroll/index.js",
-        "components/instagram/index.js",
+        "components/instagramClick/index.js",
+        "components/youtubeView/index.js",
         "onPageLoad.js"
       ]
     }

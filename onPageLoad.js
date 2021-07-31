@@ -1,4 +1,9 @@
-const availableTasks = [redditScroll, facebookScroll, instagramClick];
+const availableTasks = [
+  redditScroll,
+  facebookScroll,
+  instagramClick,
+  youtubeView,
+];
 
 const selectedTasks = availableTasks;
 

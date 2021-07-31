@@ -2,8 +2,6 @@ function redditScroll() {
   window.addEventListener("scroll", amountScrolled);
 }
 
-let scrollTarget = 15000;
-
 function amountScrolled() {
   const scrollTop =
     window.pageYOffset ||
