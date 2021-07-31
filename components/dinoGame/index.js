@@ -3,6 +3,14 @@
 // found in the LICENSE file.
 // extract from chromium source code by @liuwayong
 (function () {
+  function addCoinsAndShowConfetti(coins) {
+    chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
+      chrome.tabs.sendMessage(tab.id, { type: "addCoins", coins }, ({ balance }) => {
+        chrome.tabs.sendMessage(tab.id, { type: "showConfetti", coins, balance });
+      });
+    });
+  }
+
   "use strict";
   /**
    * T-Rex runner.
@@ -833,6 +841,10 @@
      * Game over state.
      */
     gameOver: function () {
+      // give the user some coins
+      const actualDistance = this.distanceMeter.getActualDistance(Math.ceil(this.distanceRan));
+      addCoinsAndShowConfetti(Math.ceil(actualDistance / 10));
+
       this.playSound(this.soundFx.HIT);
       vibrate(200);
 
