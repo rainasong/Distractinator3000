@@ -86,6 +86,7 @@
       ],
       "js": [
         "components/helpers/promises.js",
+        "components/helpers/state.js",
         "components/helpers/coins.js",
         "components/redditScroll/index.js",
         "onPageLoad.js"
