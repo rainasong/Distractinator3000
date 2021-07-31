@@ -81,14 +81,13 @@
   "options_page": "options.html",
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
+      "matches": ["<all_urls>"],
       "js": [
         "components/helpers/promises.js",
         "components/helpers/state.js",
         "components/helpers/coins.js",
         "components/redditScroll/index.js",
+        "components/instagram/index.js",
         "onPageLoad.js"
       ]
     }
