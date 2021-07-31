@@ -6,6 +6,12 @@
   "background": {
     "service_worker": "background.js"
   },
+  "web_accessible_resources": [
+    {
+      "resources": ["components/dinoGame/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
   "permissions": [
     "activeTab",
     "alarms",
@@ -90,6 +96,7 @@
         "components/redditScroll/index.js",
         "components/facebookScroll/index.js",
         "components/instagramClick/index.js",
+        "components/canvasDinoGame/index.js",
         "components/youtubeView/index.js",
         "onPageLoad.js"
       ]
