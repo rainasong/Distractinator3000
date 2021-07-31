@@ -47,6 +47,10 @@ img{
     margin-left: 10px;
 }
 
+.menu a{
+    text-decoration: none;
+}
+
 .coin{
     margin-left: auto; 
     margin-right: 10px;
@@ -90,7 +94,7 @@ img{
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    /* background-color: white; */
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -117,3 +121,55 @@ img{
   .slider.round:before {
     border-radius: 50%;
   }
+
+  section {
+    display: grid;
+    grid-template-columns: var(--page-margin) [center-start] 1fr [center-end] var(--page-margin);
+  }
+  section > * {
+    grid-column: center;
+  }
+  
+  .cards-section {
+    padding-bottom: 2em;
+  }
+  
+  .cards-wrapper {
+    padding: 1em;
+    grid-column: center-start/-1;
+    overflow: auto;
+    display: flex;
+    padding-bottom: 1em;
+    /* box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2); */
+    background-color: transparent;
+  }
+  .cards-wrapper .card {
+    /* background-color: #d0f0ee; */
+    color: black;
+    height: 13em;
+    min-width: 13em;
+    margin-right: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  .cards-wrapper .card p {
+    font-size: 1.5em;
+  }
+  .cards-wrapper .card:last-child {
+    margin-right: 0;
+  }
+  .cards-wrapper::after {
+    content: "";
+    display: block;
+    min-width: var(--page-margin);
+  }
+  
+  .card:hover{
+    background-color: cornsilk;
+    color: #8f9292;
+  }
+  
