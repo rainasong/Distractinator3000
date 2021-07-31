@@ -1,0 +1,21 @@
+body::-webkit-scrollbar {
+    display: none;
+  }
+
+.shop-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 2em;
+}
+   
+.shop-item {
+    height: 13em;
+    width: 13em;
+    margin-bottom: 1em;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}

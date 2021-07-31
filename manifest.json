@@ -8,7 +8,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["components/dinoGame/*"],
+      "resources": ["components/dinoGame/*", "components/spaceInvaders/*"],
       "matches": ["<all_urls>"]
     }
   ],
@@ -79,6 +79,7 @@
         "components/instagramClick/index.js",
         "components/canvasDinoGame/index.js",
         "components/youtubeView/index.js",
+        "components/piazzaSpaceInvaders/index.js",
         "onPageLoad.js"
       ]
     }

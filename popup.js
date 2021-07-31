@@ -1,20 +1,75 @@
-// toggle button
-let toggle = document.getElementById("toggle");
+let popup_shopItems = makePromise();
 
-toggle.addEventListener("change", async () => {
-  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+(async () => {
+  // auto update coins label when changes are made
+  syncWithState("", "coins", (val) => {
+    document.getElementById("coin-value").innerText = val;
+  }, 0);
 
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    function: toggleOption,
-  });
-});
+  const DEFAULT_SHOP_ITEMS = [{
+    icon: "img/2048.png",
+    name: "2048",
+    description: "Swipe merge!",
+    cost: 10,
+    purchased: false,
+  }, {
+    icon: "img/dino-game.png",
+    name: "Offline Dino",
+    description: "Run jump!",
+    cost: 10,
+    purchased: false,
+  }, {
+    icon: "img/flappy-bird.png",
+    name: "Flappy Bird",
+    description: "Flap flap!",
+    cost: 10,
+    purchased: false,
+  }, {
+    icon: "img/minesweeper.png",
+    name: "Minesweeper",
+    description: "Boom bang!",
+    cost: 10,
+    purchased: false,
+  }, {
+    icon: "img/pacman.png",
+    name: "Pacman",
+    description: "Chomp chomp!",
+    cost: 10,
+    purchased: false,
+  }, {
+    icon: "img/space-invaders.png",
+    name: "Space Invaders",
+    description: "Pew pew!",
+    cost: 10,
+    purchased: false,
+  }];
 
-function toggleOption(){
-  alert("hi");
+  // remove games that are removed from default list
+  const shopItems = (await getState("popup", "shopItems", []))
+    .filter(item => DEFAULT_SHOP_ITEMS.map(i => i.name).includes(item.name));
+
+  // add games that are added to default list
+  for (const item of DEFAULT_SHOP_ITEMS) {
+    if (!shopItems.map(i => i.name).includes(item.name)) {
+      shopItems.push(item);
+    }
+  }
+
+  popup_shopItems.resolve(shopItems);
+  setState("popup", "shopItems", shopItems);
+})();
+
+/**
+ * Returns shop items.
+ * @returns {Promise<[{}]>}
+ */
+function getShopItems() {
+  return popup_shopItems.promise;
 }
 
-document.addEventListener('click', function(e) {
-  console.log(e.target.id);
-  // alert(e.target.id);
-}, false);
+/**
+ * Reset extension storage.
+ */
+async function resetStorage() {
+  chrome.storage.sync.clear();
+}

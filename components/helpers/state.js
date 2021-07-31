@@ -41,3 +41,43 @@ function getState(namespace, key, defaultValue=null) {
 
     return promise;
 }
+
+// sync state changes
+const state_syncState = new Map();
+chrome.storage.onChanged.addListener((changes) => {
+    for (const [key, { newValue, oldValue }] of Object.entries(changes)) {
+        const listeners = state_syncState.get(key);
+        if (listeners && listeners.length) {
+            for (const listener of listeners) {
+                listener(newValue, oldValue);
+            }
+        }
+    }
+});
+
+/**
+ * Sync state value automatically, calling callback function.
+ * @param {string} namespace The calling function's name (e.g. `redditScroll`).
+ * @param {string} key The thing to get (e.g. `preferredColor`).
+ * @param {(newValue: any, oldValue: any) => void} cb Function executed immediately, then when value is changed.
+ * @param {any} defaultValue Default is returned if key does not exist.
+ */
+ function syncWithState(namespace, key, cb, defaultValue=null) {
+    if (key !== "coins") {
+        key = `${namespace}#${key}`;
+    }
+
+    chrome.storage.sync.get([key], (result) => {
+        if (result[key] == null) {
+            cb(defaultValue, null);
+        }
+        else {
+            cb(JSON.parse(result[key]), null);
+        }
+    });
+
+    if (!state_syncState.has(key)) {
+        state_syncState.set(key, []);
+    }
+    state_syncState.get(key).push(cb);
+}
