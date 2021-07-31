@@ -85,6 +85,8 @@
         "<all_urls>"
       ],
       "js": [
+        "components/helpers/promises.js",
+        "components/helpers/coins.js",
         "components/redditScroll/index.js",
         "onPageLoad.js"
       ]
