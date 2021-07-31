@@ -1,8 +1,8 @@
 async function canvasDinoGame() {
-  addDOMElement();
+  canvasDinoGame_addDOMElement();
 }
 
-async function addDOMElement() {
+function canvasDinoGame_addDOMElement() {
   const html = document.querySelector("html");
   const elem = document.createElement("div");
   elem.style.position = "fixed";
@@ -12,11 +12,11 @@ async function addDOMElement() {
   elem.style.height = "30vh";
   elem.style.width = "100%";
 
-  fetch(chrome.runtime.getURL("/components/dinoGame/index.html")).then(
-    (res) => {
-      elem.innerHTML = `<iframe src="${res.url}" style="height:100%;width:100%"/>`;
-    }
-  );
+  const $iframe = document.createElement("iframe");
+  $iframe.src = chrome.runtime.getURL("/components/dinoGame/index.html");
+  $iframe.style.height = "100%";
+  $iframe.style.width = "100%";
 
+  elem.appendChild($iframe);
   html.appendChild(elem);
 }
