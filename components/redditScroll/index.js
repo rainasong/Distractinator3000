@@ -1,7 +1,3 @@
-async function run() {
-
-}
-
-if (window.selectedTasks.includes("redditScroll")) {
-    run();
+function redditScroll() {
+    console.log("redditScroll");
 }
