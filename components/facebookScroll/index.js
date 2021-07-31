@@ -1,5 +1,5 @@
-let minutesRemaining = 0;
-let secondsRemaining = 10;
+let minutesRemaining = 20;
+let secondsRemaining = 0;
 let timeRemaining;
 let completed = false;
 const coinsAvailableToWin = 10;
@@ -29,7 +29,9 @@ async function startCountdown() {
     }
 
     if (!completed && secondsRemaining <= 0 && secondsRemaining <= 0) {
-      addCoins(coinsAvailableToWin).then(console.log);
+      addCoins(coinsAvailableToWin).then((res) => {
+        showConfetti(coinsAvailableToWin, res);
+      });
       completed = true;
     }
   }, 1000);
