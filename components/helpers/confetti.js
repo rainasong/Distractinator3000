@@ -31,6 +31,7 @@ const $confetti_p = document.createElement("p");
     $confetti.style.margin = "0";
     $confetti.style.fontSize = "16px";
     $confetti.style.fontWeight = "normal";
+    $confetti.style.pointerEvents = "none";
 
     // centered element (with white background)
     const $main = document.createElement("div");
