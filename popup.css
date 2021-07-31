@@ -1,4 +1,4 @@
-:root{
+:root {
   height: 700px;
   width: 400px;
   --page-margin: min(2rem, 5vw);
@@ -22,8 +22,7 @@ button {
 }
 
 button.current {
-  box-shadow: 0 0 0 2px white,
-              0 0 0 4px black;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px black;
 }
 
 .switch {
@@ -33,7 +32,7 @@ button.current {
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -47,8 +46,8 @@ button.current {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -59,16 +58,16 @@ button.current {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider:before {
@@ -88,7 +87,9 @@ input:checked + .slider:before {
 
 section {
   display: grid;
-  grid-template-columns: var(--page-margin) [center-start] 1fr [center-end] var(--page-margin);
+  grid-template-columns: var(--page-margin) [center-start] 1fr [center-end] var(
+      --page-margin
+    );
 }
 section > * {
   grid-column: center;
@@ -104,6 +105,7 @@ section > * {
   display: flex;
   padding-bottom: 1em;
 }
+
 .cards-wrapper .card {
   background-color: #d0f0ee;
   color: #15928a;
@@ -126,7 +128,7 @@ section > * {
   min-width: var(--page-margin);
 }
 
-.card:hover{
+.card:hover {
   background-color: cornsilk;
   color: #8f9292;
 }
@@ -135,7 +137,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  text-align:center;
+  text-align: center;
 }
 li {
   display: inline;
@@ -145,7 +147,7 @@ a {
   padding: 8px;
 }
 
-.nav-bar{
+.nav-bar {
   /* margin: 2em; */
   background-color: aliceblue;
   height: 3em;

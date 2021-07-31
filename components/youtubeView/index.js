@@ -29,7 +29,7 @@ async function updateTimeElapsed() {
       const balance = await addCoins(2000);
       showConfetti(2000, balance);
 
-      timeViewed = 0;
+      clearInterval(timer);
     }
   }
 }

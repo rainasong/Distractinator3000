@@ -1,25 +1,25 @@
-let minutesRemaining = 20;
-let secondsRemaining = 0;
-let timeRemaining;
-let completed = false;
-const coinsAvailableToWin = 10;
+let facebookMinutesRemaining = 20;
+let facebookSecondsRemaining = 0;
+let facebookTimeRemaining;
+let facebookCompleted = false;
+const facebookCoinsAvailableToWin = 10;
 
 async function facebookScroll() {
-  timeRemaining = document.createElement("p");
-  addDOMElement();
-  startCountdown();
+  facebookTimeRemaining = document.createElement("p");
+  facebookAddDOMElement();
+  facebookStartCountdown();
 }
 
-async function startCountdown() {
+async function facebookStartCountdown() {
   setInterval(() => {
     if (document.visibilityState === "visible") {
-      if (secondsRemaining === 0 && minutesRemaining !== 0) {
-        secondsRemaining = 59;
-        minutesRemaining--;
-      } else if (secondsRemaining >= 1 && minutesRemaining >= 0) {
-        secondsRemaining--;
+      if (facebookSecondsRemaining === 0 && facebookMinutesRemaining !== 0) {
+        facebookSecondsRemaining = 59;
+        facebookMinutesRemaining--;
+      } else if (facebookSecondsRemaining >= 1 && facebookMinutesRemaining >= 0) {
+        facebookSecondsRemaining--;
       }
-      timeRemaining.innerText = `Time remaining: ${minutesRemaining}:${secondsRemaining.toLocaleString(
+      facebookTimeRemaining.innerText = `Time remaining: ${facebookMinutesRemaining}:${facebookSecondsRemaining.toLocaleString(
         "en-US",
         {
           minimumIntegerDigits: 2,
@@ -28,16 +28,16 @@ async function startCountdown() {
       )}`;
     }
 
-    if (!completed && secondsRemaining <= 0 && secondsRemaining <= 0) {
-      addCoins(coinsAvailableToWin).then((res) => {
-        showConfetti(coinsAvailableToWin, res);
+    if (!facebookCompleted && facebookSecondsRemaining <= 0 && facebookSecondsRemaining <= 0) {
+      addCoins(facebookCoinsAvailableToWin).then((res) => {
+        showConfetti(facebookCoinsAvailableToWin, res);
       });
-      completed = true;
+      facebookCompleted = true;
     }
   }, 1000);
 }
 
-async function addDOMElement() {
+async function facebookAddDOMElement() {
   const html = document.querySelector("html");
   const elem = document.createElement("div");
 
@@ -49,8 +49,8 @@ async function addDOMElement() {
   elem.style.display = "flex";
   elem.style.padding = "10px 20px";
   elem.style.boxShadow = "";
-  elem.innerHTML = `<p style="margin-right:20px;">Scroll Facebook for 20 minutes to win ${coinsAvailableToWin} coins!</p>`;
-  elem.appendChild(timeRemaining);
+  elem.innerHTML = `<p style="margin-right:20px;">Scroll Facebook for 20 minutes to win ${facebookCoinsAvailableToWin} coins!</p>`;
+  elem.appendChild(facebookTimeRemaining);
 
   html.appendChild(elem);
 }
