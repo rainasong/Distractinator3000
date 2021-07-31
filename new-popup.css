@@ -1,0 +1,119 @@
+* {
+    /* color: white; */
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root{
+    height: 600px;
+    width: 400px;
+    margin: 0;
+    padding: 0;
+    /* background-color: rgb(63, 63, 63); */
+}
+
+nav{
+    height: 50px;
+    margin: 5% 10px;
+    display: flex;
+    align-items: center;
+}
+
+main{
+    padding: 1px 20px;
+}
+
+.task-container{
+    
+}
+
+.task{
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+img{
+    height: 30px;
+}
+
+.menu {
+    margin-left: 10px;
+}
+
+.menu img{
+    margin-left: 10px;
+}
+
+.coin{
+    margin-left: auto; 
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.coin label{
+    margin-left: 5px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
