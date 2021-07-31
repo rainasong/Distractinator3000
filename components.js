@@ -1,12 +1,29 @@
 class navBar extends HTMLElement {
     connectedCallback() {
       this.innerHTML = `
-      <ul>
-        <li><a href="popup.html">Home</a></li>
-        <li><a href="spinner.html">Spinning Wheel</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="settings.html">Settings</a></li>
-      </ul>
+      <nav>
+      <div class="logo">
+        <h1>LOGO</h1>
+      </div>
+      <div class="menu">
+        <a href="popup.html">
+          <img src="assets/home.png" alt="home">
+        </a>
+        <a href="spinner.html">
+          <img src="assets/spinner.png" alt="spinner">
+        </a>
+        <a href="shop.html">
+          <img src="assets/shop.png" alt="shop">
+        </a>
+        <a href="settings.html">
+          <img src="assets/settings.png" alt="setting">
+        </a>
+      </div>
+      <div class="coin">
+        <img src="assets/coin.png" alt="coin">
+        <label id="coin-value">10000</label>
+      </div>
+    </nav>
       `;
     }
   }
