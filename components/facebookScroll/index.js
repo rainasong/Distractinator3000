@@ -33,7 +33,7 @@ async function facebookStartCountdown() {
 
     if (
       !facebookCompleted &&
-      facebookSecondsRemaining <= 0 &&
+      facebookMinutesRemaining <= 0 &&
       facebookSecondsRemaining <= 0
     ) {
       addCoins(facebookCoinsAvailableToWin).then((res) => {
@@ -55,7 +55,8 @@ async function facebookAddDOMElement() {
   elem.style.width = "100%";
   elem.style.display = "flex";
   elem.style.padding = "10px 20px";
-  elem.style.boxShadow = "";
+  elem.style.boxShadow = "0 3px 15px 2px rgba(0, 0, 0, 0.3)";
+  elem.style.fontFamily = "Roboto";
   elem.innerHTML = `<p style="margin-right:20px;">Scroll Facebook for 20 minutes to win ${facebookCoinsAvailableToWin} coins!</p>`;
   elem.appendChild(facebookTimeRemaining);
 
