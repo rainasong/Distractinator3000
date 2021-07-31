@@ -87,6 +87,7 @@
         "components/helpers/state.js",
         "components/helpers/coins.js",
         "components/redditScroll/index.js",
+        "components/facebookScroll/index.js",
         "components/instagram/index.js",
         "onPageLoad.js"
       ]
