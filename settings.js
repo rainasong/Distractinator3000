@@ -8,4 +8,9 @@ async function activateDarkMode(ev) {
 
 (async () => {
     toggleButton.checked = await getState('darkMode', 'Activated', false);
+
+    const $resetStorage = document.getElementById("reset-storage");
+    $resetStorage.addEventListener("click", () => {
+        resetStorage();
+    });
 })();
