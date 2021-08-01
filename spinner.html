@@ -6,28 +6,57 @@
   </head>
   <body>
     
-    <nav-bar></nav-bar>
+    <nav>
+      <div class="logo">
+        <img src="assets/logo.png" alt="logo">
+      </div>
+      <div class="menu">
+        <a href="popup.html">
+          <img src="assets/home.png" alt="home">
+        </a>
+        <a href="spinner.html">
+          <img src="assets/spinner.png" alt="spinner">
+        </a>
+        <a href="shop.html">
+          <img src="assets/shop.png" alt="shop">
+        </a>
+        <a href="settings.html">
+          <img src="assets/settings.png" alt="setting">
+        </a>
+      </div>
+      <div class="coin">
+        <img src="assets/coin.png" alt="coin">
+        <label id="coin-value">loading ...</label>
+      </div>
+    </nav>
 
     <div class="content">
+      <div id="arrow">
+        <img src="assets/down-arrow.png" alt="arrow">
+      </div>
+      <div id="text">
+        <!-- <label for="won">You've won</label> -->
+      </div>
       <div class="spinner-container">
         <div id="spinner" class="spinner">
           <div class="spinner-item1">
-            <span class="item1"></span>
-            <span class="item2"></span>
-            <span class="item3"></span>
-            <span class="item4"></span>
+            <span class="item1"><b id="7">700</b></span>
+            <span class="item2"><b id="3">300</b></span>
+            <span class="item3"><b id="5">5000</b></span>
+            <span class="item4"><b id="1">100</b></span>
           </div>
           <div class="spinner-item2">
-            <span class="item1"></span>
-            <span class="item2"></span>
-            <span class="item3"></span>
-            <span class="item4"></span>
+            <span class="item1"><b id="4">400</b></span>
+            <span class="item2"><b id="8">80</b></span>
+            <span class="item3"><b id="2">200</b></span>
+            <span class="item4"><b id="6">60</b></span>
           </div>
         </div>
         <button class="spin-btn" id="spin-btn">SPIN</button>
       </div>
     </main>
-    
+
+    <script src="components/helpers/confetti.js"></script>
     <script src="spinner.js"></script>
     <script src="components/helpers/promises.js"></script>
     <script src="components/helpers/state.js"></script>

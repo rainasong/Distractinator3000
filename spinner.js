@@ -1,19 +1,20 @@
-let spin = document.getElementById("spin-btn");
+let spinBtn = document.getElementById("spin-btn");
 
-spin.addEventListener("click", function(){
-//   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-
-//   chrome.scripting.executeScript({
-//     target: { tabId: tab.id },
-//     function: spin,
-//   });
-    alert("hello");
+spinBtn.addEventListener("click", function() {
+    var min = 900;
+    var max = 9999;
+    var deg = Math.floor(Math.random() * (min-max)) + min;
+    document.getElementById("spinner").style.transform = "rotate("+deg+"deg)";
+    // console.log(Math.abs(Math.floor(((deg+22.5)%360)/45)));
+    var index = Math.abs(Math.floor(((deg+22.5)%360)/45))+1;
+    // console.log(document.getElementById("index").innerHTML);
+    if (index == 9){
+        index = 1;
+    }
+    var coins = Number.parseInt(document.getElementById(index).innerText);
+    addCoins(coins);
+    setTimeout(function(){
+        showConfetti(coins, getCoins());
+    }, 5500);
 });
 
-function spin(){
-    var min = 1024;
-    var max = 9999;
-
-    var deg = Math.floor(Math.random() * (x-y)) + y;
-    document.getElementById("spinner").style.transform = "rotate("+deg+"deg)";
-}

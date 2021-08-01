@@ -11,14 +11,25 @@
     align-items: center;
     transform: translate(14%, 15%);
 }
+/* .spinner-container::after{
+    position: absolute;
+    content: '';
+    width: 32px;
+    height: 32px;
+    background: url('assets/down-arrow.png') no-repeat;
+    background-size: 32px;
+    right: -30px;
+} */
 
 .spinner{
     width: 100%;
     height: 100%;
     position: relative;
     border-radius: 50%;
-    border: 10px solid red;
+    border: 10px solid #F05945;
     overflow: hidden;
+    transition: all ease 5s;
+    background-color: #EC8F6A;
 }
 
 .spinner-items{
@@ -31,28 +42,39 @@ span{
     display: inline-block;
     position: adsolute;
 }
+span b{
+    width: 50px;
+    height: 50px;
+    line-height: 135px;
+    padding: 62px;
+    font-size: 20px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .item1{
     clip-path: polygon(0% 92%, 100% 50%, 0 8%);
-    background-color: blue;
-    transform: translate(0%, 49%);
+    background-color: #7ECFC0;
+    transform: translate(-4%, 45%);
     left: 0;
 }
 .item2{
     clip-path: polygon(100% 92%, 0% 50%, 100% 8%);
-    background-color: yellow;
-    transform: translate(100%, -53%);
+    background-color: #F2E3C9;
+    transform: translate(98%, -55%);
     left: 0;
 }
 .item3{
     clip-path: polygon(50% 0%, 8% 100%, 92% 100%);
-    background-color: red;
-    transform: translate(50%, -105%);
+    background-color: #EC8F6A;
+    transform: translate(48%, -103%);
     left: 0;
 }
 .item4{
     clip-path: polygon(50% 100%, 92% 0%, 8% 0%);
-    background-color: green;
-    transform: translate(50%, -307%);
+    background-color: #EF4B4B;
+    transform: translate(49%, -306%);
     left: 0;
 }
 .spinner-item2{
@@ -68,7 +90,7 @@ span{
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    border: black solid;
+    border: 5px #F0E4D7 solid;
     background-color: white;
     box-shadow: 0 3px 26px rgba(0, 0, 0, 0.404);
     cursor: pointer;
@@ -78,4 +100,16 @@ span{
     height: 68px;
     transform: translate(173%, 2%);
     font-size: 99%;
+}
+
+#arrow{
+    transform: translate(46%, 150%);
+}
+
+.text{
+    font-size: 20px;
+    transform: translate(20%, 20%);
+}
+#2{
+    rotate: 20deg;
 }
