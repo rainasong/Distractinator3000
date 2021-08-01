@@ -68,6 +68,7 @@ body::-webkit-scrollbar {
 
 .cannot-purchase {
   background-color: rgb(233, 233, 233);
+  color: black;
 }
 
 .website-label {
