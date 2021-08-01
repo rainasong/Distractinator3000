@@ -1,5 +1,4 @@
 * {
-    /* color: white; */
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -8,7 +7,6 @@
     width: 400px;
     margin: 0;
     padding: 0;
-    /* background-color: rgb(63, 63, 63); */
 }
 
 nav{
@@ -31,7 +29,7 @@ main{
     overflow: hidden;
 }
 
-img{
+.logo img{
     height: 29px;
 }
 
@@ -41,6 +39,7 @@ img{
 
 .menu img{
     margin-left: 5px;
+    height: 25px;
 }
 
 .menu a{
@@ -49,13 +48,18 @@ img{
 
 .coin{
     margin-left: auto; 
-    margin-right: 10px;
+    margin-right: 2px;
     display: flex;
     align-items: center;
+    transform: translateY(-6%);
 }
 
 .coin label{
-    margin-left: 5px;
+    margin-left: 3px;
+}
+
+.coin img{
+    height: 25px;
 }
 
   section {
@@ -155,4 +159,8 @@ img{
 a {
   color: black;
   text-decoration: none;
+}
+
+#coin-value{
+    font-weight: bold;
 }
