@@ -2,8 +2,6 @@ let popup_shopItems = makePromise();
 
 (async () => {
   syncWithState('darkMode', 'Activated', (darkModeActivated, a) => {
-    console.log(`this is sync qith state ${darkModeActivated}; old was: ${a}; body is ${document.body.parentElement.className}`);
-
     if (darkModeActivated) {
       document.body.parentElement.classList.add("dark");
     } else {
@@ -12,7 +10,7 @@ let popup_shopItems = makePromise();
   }, false)
 
   // auto update coins label when changes are made
-  syncWithState("", "coins", (val) => {
+  syncWithState("shop", "coins", (val) => {
     document.getElementById("coin-value").innerText = val;
   }, 0);
 

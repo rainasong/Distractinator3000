@@ -1,21 +1,14 @@
 /**
  * Set coin balance.
  * @param {number} coins New coin balance.
- * @returns {Promise<number>} Coin balance after update.
+ * @returns {Promise<void>}
  */
 function setCoins(coins) {
-    const { promise, resolve, reject } = makePromise();
-
     if (!Number.isInteger(coins) || coins < 0) {
-        reject(`Number of coins must be a non-negative integer, recieved ${coins}`);
-        return promise;
+        throw new Error(`Number of coins must be a non-negative integer, recieved ${coins}`);
     }
 
-    chrome.storage.sync.set({ coins }, () => {
-        console.log(`Set current coins balance to ${coins}`);
-        resolve(coins);
-    });
-    return promise;
+    setState("shop", "coins", coins);
 }
 
 /**
@@ -23,13 +16,7 @@ function setCoins(coins) {
  * @returns {Promise<number>} Coin balance.
  */
 function getCoins() {
-    const { promise, resolve } = makePromise();
-
-    chrome.storage.sync.get(["coins"], ({ coins }) => {
-        resolve(Number.parseInt(coins) || 0);
-    });
-
-    return promise;
+    return getState("shop", "coins", 0);
 }
 
 /**
@@ -37,7 +24,7 @@ function getCoins() {
  * @param {number} coinsToAdd
  * @returns {Promise<number>} Coin balance after adding.
  */
-async function addCoins(coinsToAdd) {
+function addCoins(coinsToAdd) {
     const { promise, resolve, reject } = makePromise();
 
     if (!Number.isInteger(coinsToAdd) || coinsToAdd <= 0) {
@@ -45,11 +32,17 @@ async function addCoins(coinsToAdd) {
         return promise;
     }
 
-    const coins = await getCoins();
-    setCoins(coins + coinsToAdd)
-        .catch(e => reject(e))
-        .then(c => resolve(c));
-    
+    getCoins()
+        .then(coins => {
+            try {
+                setCoins(coins + coinsToAdd);
+                resolve(coins + coinsToAdd);
+            }
+            catch (e) {
+                reject(e);
+            }
+        });
+
     return promise;
 }
 
@@ -58,7 +51,7 @@ async function addCoins(coinsToAdd) {
  * @param {number} coinsToRemove
  * @returns {Promise<number>} Coin balance after removal.
  */
-async function removeCoins(coinsToRemove) {
+function removeCoins(coinsToRemove) {
     const { promise, resolve, reject } = makePromise();
 
     if (!Number.isInteger(coinsToRemove) || coinsToRemove <= 0) {
@@ -66,10 +59,16 @@ async function removeCoins(coinsToRemove) {
         return promise;
     }
 
-    const coins = await getCoins();
-    setCoins(coins - coinsToRemove)
-        .catch(e => reject(e))
-        .then(c => resolve(c));
+    getCoins()
+        .then(coins => {
+            try {
+                setCoins(coins - coinsToRemove);
+                resolve(coins - coinsToRemove);
+            }
+            catch (e) {
+                reject(e);
+            }
+        });
     
     return promise;
 }

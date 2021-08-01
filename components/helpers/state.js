@@ -49,7 +49,7 @@ chrome.storage.onChanged.addListener((changes) => {
         const listeners = state_syncState.get(key);
         if (listeners && listeners.length) {
             for (const listener of listeners) {
-                listener(newValue, oldValue);
+                listener(JSON.parse(newValue), JSON.parse(oldValue));
             }
         }
     }
@@ -63,9 +63,7 @@ chrome.storage.onChanged.addListener((changes) => {
  * @param {any} defaultValue Default is returned if key does not exist.
  */
  function syncWithState(namespace, key, cb, defaultValue=null) {
-    if (key !== "coins") {
-        key = `${namespace}#${key}`;
-    }
+    key = `${namespace}#${key}`;
 
     chrome.storage.sync.get([key], (result) => {
         if (result[key] == null) {
