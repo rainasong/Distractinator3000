@@ -132,6 +132,10 @@ async function resetStorage() {
     challenge: "Play Pacman for coins",
     website: "https://gmail.com/",
     icon: "img/pacman.jpg",
+  }, {
+    challenge: "Play 3 Buzzfeed quizzes",
+    website: "https://www.buzzfeed.com/au/quizzes",
+    icon: "img/buzzfeed.png",
   },]
   
   for (task of taskList) {
