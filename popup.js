@@ -20,36 +20,42 @@ let popup_shopItems = makePromise();
     description: "Swipe merge!",
     cost: 10,
     purchased: false,
+    website: "piazza.com",
   }, {
     icon: "img/dino-game.jpg",
     name: "Offline Dino",
     description: "Run jump!",
     cost: 10,
     purchased: false,
+    website: "canvas.auckland.ac.nz",
   }, {
     icon: "img/flappy-bird.jpg",
     name: "Flappy Bird",
     description: "Flap flap!",
     cost: 10,
     purchased: false,
+    website: "google.com/drive",
   }, {
     icon: "img/minesweeper.jpg",
     name: "Minesweeper",
     description: "Boom bang!",
     cost: 10,
     purchased: false,
+    website: "sesa.org.nz",
   }, {
     icon: "img/pacman.jpg",
     name: "Pacman",
     description: "Chomp chomp!",
     cost: 10,
     purchased: false,
+    website: "gmail.com",
   }, {
-    icon: "img/space-invaders.jpg",
+    icon: "img/space-invaders.png",
     name: "Space Invaders",
     description: "Pew pew!",
     cost: 10,
     purchased: false,
+    website: "notion.so",
   }];
 
   // remove games that are removed from default list
