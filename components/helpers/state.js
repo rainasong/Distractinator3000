@@ -48,8 +48,11 @@ chrome.storage.onChanged.addListener((changes) => {
     for (const [key, { newValue, oldValue }] of Object.entries(changes)) {
         const listeners = state_syncState.get(key);
         if (listeners && listeners.length) {
-            for (const listener of listeners) {
-                listener(JSON.parse(newValue), JSON.parse(oldValue));
+            for (const [listener, defaultValue] of listeners) {
+                listener(
+                    newValue == null ? defaultValue : JSON.parse(newValue),
+                    oldValue == null ? defaultValue : JSON.parse(oldValue)
+                );
             }
         }
     }
@@ -77,5 +80,5 @@ chrome.storage.onChanged.addListener((changes) => {
     if (!state_syncState.has(key)) {
         state_syncState.set(key, []);
     }
-    state_syncState.get(key).push(cb);
+    state_syncState.get(key).push([cb, defaultValue]);
 }
