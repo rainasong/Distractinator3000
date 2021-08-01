@@ -10,6 +10,8 @@
     display: flex;
     align-items: center;
     transform: translate(14%, 15%);
+    box-shadow: 0 3px 26px rgba(0, 0, 0, 0.404);
+    border-radius: 50%;
 }
 /* .spinner-container::after{
     position: absolute;
@@ -46,7 +48,7 @@ span b{
     width: 50px;
     height: 50px;
     line-height: 135px;
-    padding: 62px;
+    padding: 50px;
     font-size: 20px;
     text-align: center;
     top: 50%;
@@ -105,11 +107,23 @@ span b{
 #arrow{
     transform: translate(46%, 150%);
 }
+#arrow img{
+    height: 30px;
+}
 
 .text{
     font-size: 20px;
     transform: translate(20%, 20%);
 }
 #2{
-    rotate: 20deg;
+    transform: rotate(20deg);
+}
+.value{
+    transform: translate(30%);
+}
+#text{
+    padding: 1px 0px 0 20px;
+}
+.spinner-outerbox{
+    transform: translate(0%, -6%);
 }

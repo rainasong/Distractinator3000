@@ -117,3 +117,4 @@ function hideConfetti() {
     $confetti.style.opacity = "0";
     $confetti.style.pointerEvents = "none";
 }
+
