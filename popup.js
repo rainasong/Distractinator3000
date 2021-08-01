@@ -1,10 +1,15 @@
 let popup_shopItems = makePromise();
 
 (async () => {
-  syncWithState('darkMode', 'Activated', (darkModeActivated, a) => {
+  syncWithState('darkMode', 'Activated', (darkModeActivated) => {
     if (darkModeActivated) {
       document.body.parentElement.classList.add("dark");
     } else {
+      const toggleButton = document.querySelector("#toggle");
+        if (toggleButton) {
+          toggleButton.checked = darkModeActivated; 
+        }
+
       document.body.parentElement.classList.remove("dark");
     }
   }, false)
