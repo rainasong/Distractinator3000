@@ -1,7 +1,8 @@
 const youtubeView_progressBar = document.querySelector(".ytp-progress-bar");
 const youtubeView_barColour = document.querySelector(".ytp-swatch-background-color");
 
-const youtubeView_timeToWatch = 30; // 30 seconds for demo
+const youtubeView_timeToWatch = 25; // 25 seconds for demo
+const youtubeView_coinsAvailableToWin = 2000;
 let youtubeView_timeViewed = 0;
 
 let youtubeView_timer;
@@ -34,8 +35,8 @@ async function youtubeView_updateTimeElapsed() {
     $youtubeView_timeRemaining.innerText = `Time remaining: ${mins}:${secs}`;
 
     if (remaining <= 0) {
-      const balance = await addCoins(2000);
-      showConfetti(2000, balance);
+      const balance = await addCoins(youtubeView_coinsAvailableToWin);
+      showConfetti(youtubeView_coinsAvailableToWin, balance);
 
       youtubeView_timeViewed = 0;
       clearInterval(youtubeView_timer);
