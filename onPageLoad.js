@@ -11,9 +11,13 @@ const availableTasks = [
 (async () => {
   const shopItems = await getState("popup", "shopItems", []);
   const selectedTasks = availableTasks.filter(
-    ([, , prereq]) =>
-      prereq === "free" ||
-      shopItems.find((item) => item.name === prereq).purchased
+    ([, , prereq]) => {
+      if (prereq === "free") {
+        return true;
+      }
+      const item = shopItems.find((item) => item.name === prereq);
+      return !item || item.purchased;
+    }
   );
   // get hostname (without www prefix if it exists)
   const hostname = window.location.hostname.replace(/^www\./, "");
