@@ -19,3 +19,26 @@ body::-webkit-scrollbar {
     box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
+
+.item-image {
+    height: 7em;
+    width: 7em;
+}
+
+.item-title {
+    font-weight: normal;
+    font-size: medium;
+}
+
+.item-price {
+    font-weight: normal;
+    font-size: small;
+}
+
+.shop-coin {
+    margin-left: auto; 
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    height: 2em;
+}

@@ -21,31 +21,31 @@ let popup_shopItems = makePromise();
     cost: 10,
     purchased: false,
   }, {
-    icon: "img/dino-game.png",
+    icon: "img/dino-game.jpg",
     name: "Offline Dino",
     description: "Run jump!",
     cost: 10,
     purchased: false,
   }, {
-    icon: "img/flappy-bird.png",
+    icon: "img/flappy-bird.jpg",
     name: "Flappy Bird",
     description: "Flap flap!",
     cost: 10,
     purchased: false,
   }, {
-    icon: "img/minesweeper.png",
+    icon: "img/minesweeper.jpg",
     name: "Minesweeper",
     description: "Boom bang!",
     cost: 10,
     purchased: false,
   }, {
-    icon: "img/pacman.png",
+    icon: "img/pacman.jpg",
     name: "Pacman",
     description: "Chomp chomp!",
     cost: 10,
     purchased: false,
   }, {
-    icon: "img/space-invaders.png",
+    icon: "img/space-invaders.jpg",
     name: "Space Invaders",
     description: "Pew pew!",
     cost: 10,
@@ -81,4 +81,3 @@ function getShopItems() {
 async function resetStorage() {
   chrome.storage.sync.clear();
 }
-
