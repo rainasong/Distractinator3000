@@ -1,6 +1,6 @@
 {
-  "name": "Getting Started Example",
-  "description": "Build an Extension!",
+  "name": "Distractinator 3000",
+  "description": "Your new best friend",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
