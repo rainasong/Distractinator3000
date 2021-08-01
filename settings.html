@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="new-popup.css">
-    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="new-popup.css" />
+    <link rel="stylesheet" href="settings.css" />
   </head>
   <body>
-    
     <nav>
-        <div class="logo">
-          <img src="assets/logo.png" alt="logo">
-        </div>
-        <div class="menu">
-          <a href="popup.html">
-            <img src="assets/home.png" alt="home">
-          </a>
-          <a href="spinner.html">
-            <img src="assets/spinner.png" alt="spinner">
-          </a>
-          <a href="shop.html">
-            <img src="assets/shop.png" alt="shop">
-          </a>
-          <a href="settings.html">
-            <img src="assets/settings.png" alt="setting">
-          </a>
-        </div>
-        <div class="coin">
-          <img src="assets/coin.png" alt="coin">
-          <label id="coin-value">loading ...</label>
-        </div>
-      </nav>
+      <div class="logo">
+        <img src="assets/logo.png" alt="logo" id="logo-img" />
+      </div>
+      <div class="menu">
+        <a href="popup.html">
+          <img src="assets/home.png" alt="home" />
+        </a>
+        <a href="spinner.html">
+          <img src="assets/spinner.png" alt="spinner" />
+        </a>
+        <a href="shop.html">
+          <img src="assets/shop.png" alt="shop" />
+        </a>
+        <a href="settings.html">
+          <img src="assets/settings.png" alt="setting" />
+        </a>
+      </div>
+      <div class="coin">
+        <img src="assets/coin.png" alt="coin" />
+        <label id="coin-value">loading ...</label>
+      </div>
+    </nav>
 
     <div class="switch-container">
       <h1 class="settings-text">Dark mode</h1>
       <label class="switch">
-      <input type="checkbox" id="toggle"/>
-      <span class="slider round"></span>
-    </label>
+        <input type="checkbox" id="toggle" />
+        <span class="slider round"></span>
+      </label>
     </div>
 
     <div id="reset-storage" class="btn">Reset storage</div>

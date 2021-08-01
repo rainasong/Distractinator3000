@@ -5,14 +5,17 @@ let popup_shopItems = makePromise();
     "darkMode",
     "Activated",
     (darkModeActivated) => {
+      const logoImage = document.querySelector("#logo-img");
       if (darkModeActivated) {
+        logoImage.src = "assets/logo-white.png";
         document.body.parentElement.classList.add("dark");
       } else {
         const toggleButton = document.querySelector("#toggle");
         if (toggleButton) {
           toggleButton.checked = darkModeActivated;
         }
-
+        l;
+        logoImage.src = "assets/logo.png";
         document.body.parentElement.classList.remove("dark");
       }
     },
