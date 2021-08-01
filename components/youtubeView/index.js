@@ -1,7 +1,7 @@
 const youtubeView_progressBar = document.querySelector(".ytp-progress-bar");
 const youtubeView_barColour = document.querySelector(".ytp-swatch-background-color");
 
-const youtubeView_timeToWatch = 25; // 25 seconds for demo
+const youtubeView_timeToWatch = 10; // 10 seconds for demo
 const youtubeView_coinsAvailableToWin = 2000;
 let youtubeView_timeViewed = 0;
 
@@ -58,7 +58,7 @@ async function youtubeView_addDOMElement() {
 
   const $p = document.createElement("span");
   $p.style.marginRight = "20px";
-  $p.innerText = `Watch 20 minutes to win ${coinsAvailableToWin} coins!`
+  $p.innerText = `Watch 20 minutes to win ${youtubeView_coinsAvailableToWin} coins!`
 
   $elem.appendChild($p);
   $elem.appendChild($youtubeView_timeRemaining);
