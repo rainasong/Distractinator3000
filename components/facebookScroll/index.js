@@ -1,11 +1,11 @@
-const FACEBOOK_DEFAULT_MINUTES = 20;
-const FACEBOOK_DEFAULT_SECONDS = 0;
+const FACEBOOK_DEFAULT_MINUTES = 0;
+const FACEBOOK_DEFAULT_SECONDS = 25;
 
 let facebookMinutesRemaining;
 let facebookSecondsRemaining;
 let facebookCompleted = false;
 
-const facebookCoinsAvailableToWin = 1000;
+const facebookCoinsAvailableToWin = 5000;
 const $facebookTimeRemaining = document.createElement("p");
 const restartButton = document.createElement("button");
 
@@ -28,16 +28,8 @@ async function facebookStartCountdown() {
   setInterval(() => {
     if (document.visibilityState === "visible") {
       facebookCountdown();
-      $facebookTimeRemaining.innerText = `Time remaining: ${facebookMinutesRemaining.toLocaleString(
-        "en-US",
-        {
-          minimumIntegerDigits: 2,
-          useGrouping: false,
-        }
-      )}:${facebookSecondsRemaining.toLocaleString("en-US", {
-        minimumIntegerDigits: 2,
-        useGrouping: false,
-      })}`;
+      const secs = facebookSecondsRemaining.toString().padStart(2,"0");
+      $facebookTimeRemaining.innerText = `Time remaining: ${facebookMinutesRemaining}:${secs}`;
     }
     facebookCheckCompleted();
   }, 1000);
@@ -50,19 +42,19 @@ function facebookCountdown() {
     setState(
       "facebookScroll",
       "facebookSecondsRemaining",
-      facebookSecondsRemaining.toString()
+      facebookSecondsRemaining
     );
     setState(
       "facebookScroll",
       "facebookMinutesRemaining",
-      facebookMinutesRemaining.toString()
+      facebookMinutesRemaining
     );
   } else if (facebookSecondsRemaining >= 1 && facebookMinutesRemaining >= 0) {
     facebookSecondsRemaining--;
     setState(
       "facebookScroll",
       "facebookSecondsRemaining",
-      facebookSecondsRemaining.toString()
+      facebookSecondsRemaining
     );
   }
 }
