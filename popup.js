@@ -4,10 +4,15 @@ let popup_shopItems = makePromise();
   syncWithState(
     "darkMode",
     "Activated",
-    (darkModeActivated, a) => {
+    (darkModeActivated) => {
       if (darkModeActivated) {
         document.body.parentElement.classList.add("dark");
       } else {
+        const toggleButton = document.querySelector("#toggle");
+        if (toggleButton) {
+          toggleButton.checked = darkModeActivated;
+        }
+
         document.body.parentElement.classList.remove("dark");
       }
     },
@@ -160,6 +165,11 @@ async function resetStorage() {
       challenge: "Play Pacman for coins",
       website: "https://gmail.com/",
       icon: "img/pacman.jpg",
+    },
+    {
+      challenge: "Play 3 Buzzfeed quizzes",
+      website: "https://www.buzzfeed.com/au/quizzes",
+      icon: "img/buzzfeed.png",
     },
   ];
 
