@@ -1,5 +1,5 @@
 const FACEBOOK_DEFAULT_MINUTES = 0;
-const FACEBOOK_DEFAULT_SECONDS = 25;
+const FACEBOOK_DEFAULT_SECONDS = 10;
 
 let facebookMinutesRemaining;
 let facebookSecondsRemaining;
@@ -28,7 +28,7 @@ async function facebookStartCountdown() {
   setInterval(() => {
     if (document.visibilityState === "visible") {
       facebookCountdown();
-      const secs = facebookSecondsRemaining.toString().padStart(2,"0");
+      const secs = facebookSecondsRemaining.toString().padStart(2, "0");
       $facebookTimeRemaining.innerText = `Time remaining: ${facebookMinutesRemaining}:${secs}`;
     }
     facebookCheckCompleted();
