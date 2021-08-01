@@ -2,19 +2,29 @@
 <html>
   <head>
     <link rel="stylesheet" href="new-popup.css">
+    <link rel="stylesheet" href="settings.css">
   </head>
   <body>
     
     <nav-bar></nav-bar>
 
-    <label class="switch" >
+    <div class="switch-container">
+      <h1 class="settings-text">Dark mode</h1>
+      <label class="switch">
       <input type="checkbox" id="toggle"/>
       <span class="slider round"></span>
     </label>
+    </div>
+    
     
     
 
-    <script src="popup.js"></script>
-    <script src="components.js"></script>
+    
   </body>
+  <script src="components/helpers/promises.js"></script>
+  <script src="components/helpers/state.js"></script>
+  <script src="components/helpers/coins.js"></script>
+  <script src="popup.js"></script>
+  <script src="components.js"></script>
+  <script src="settings.js"></script>
 </html>
