@@ -15,7 +15,6 @@ const availableTasks = [
       prereq === "free" ||
       shopItems.find((item) => item.name === prereq).purchased
   );
-  console.log(shopItems);
   // get hostname (without www prefix if it exists)
   const hostname = window.location.hostname.replace(/^www\./, "");
   for (const [task, hosts] of selectedTasks) {
