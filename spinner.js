@@ -13,9 +13,9 @@ spinBtn.addEventListener("click", function() {
 
     var coins = Number.parseInt(document.getElementById(index).innerText);
     
-    setTimeout(function(){
-        showConfetti(coins, getCoins());
-        addCoins(coins);
+    setTimeout(async () => {
+        const balance = await addCoins(coins);
+        showConfetti(coins, balance);
     }, 5500);
 });
 
