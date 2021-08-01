@@ -24,7 +24,7 @@ function piazzaSpaceInvaders_addDOMElement() {
   const $label = document.createElement("div");
   $label.style.width = "100%";
   $label.style.height = "30px";
-  $label.style.padding = "10px 10px 5px 10px";
+  $label.style.padding = "15px 0 5px 15px";
   $label.style.fontFamily = "Roboto";
   $label.innerText = "Play Space Invaders to win coins!";
 
