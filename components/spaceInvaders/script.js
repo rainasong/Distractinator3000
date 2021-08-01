@@ -643,7 +643,7 @@ function setupAlienFormation() {
 function reset() {
   aliens = [];
   setupAlienFormation();
-  addCoinsAndShowConfetti(player.score);
+  addCoinsAndShowConfetti(Math.ceil(player.score / 15));
   player.reset();
 }
 
@@ -739,7 +739,7 @@ function resolveBulletPlayerCollisions() {
     ) {
       if (player.lives === 0) {
         hasGameStarted = false;
-        addCoinsAndShowConfetti(player.score);
+        addCoinsAndShowConfetti(Math.ceil(player.score / 15));
       } else {
         alien.bullet.alive = false;
         particleManager.createExplosion(

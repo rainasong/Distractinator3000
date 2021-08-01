@@ -20,7 +20,7 @@ let popup_shopItems = makePromise();
     description: "Swipe merge!",
     cost: 10,
     purchased: false,
-    website: "piazza.com",
+    website: "notion.so",
   }, {
     icon: "img/dino-game.jpg",
     name: "Offline Dino",
@@ -55,7 +55,7 @@ let popup_shopItems = makePromise();
     description: "Pew pew!",
     cost: 10,
     purchased: false,
-    website: "notion.so",
+    website: "piazza.com",
   }];
 
   // remove games that are removed from default list
@@ -87,3 +87,64 @@ function getShopItems() {
 async function resetStorage() {
   chrome.storage.sync.clear();
 }
+
+(() => {
+  const taskContent = document.querySelector('.task-container');
+
+  if (!taskContent) {
+    console.log("hello");
+    return;
+  }
+
+  const taskList = [{
+    challenge: "Scroll Facebook for 20 minutes",
+    website: "https://www.facebook.com/",
+    icon: "img/facebook.jpg",
+  }, {
+    challenge: "Watch 10 Instagram stories",
+    website: "https://www.instagram.com/",
+    icon: "img/instagram.jpg",
+  }, {
+    challenge: "Watch Youtube for 20 minutes",
+    website: "https://www.youtube.com/",
+    icon: "img/youtube.jpg",
+  }, {
+    challenge: "Play Offline Dino for coins",
+    website: "https://canvas.auckland.ac.nz/",
+    icon: "img/dino-game.jpg",
+  }, {
+    challenge: "Play Space Invaders for coins",
+    website: "https://piazza.com/",
+    icon: "img/space-invaders.png",
+  }, {
+    challenge: "Play Minesweeper for coins",
+    website: "https://sesa.org.nz/",
+    icon: "img/minesweeper.jpg",
+  }, {
+    challenge: "Play Flappy Bird for coins",
+    website: "https://www.google.com/drive/",
+    icon: "img/flappy-bird.jpg",
+  }, {
+    challenge: "Play 2048 for coins",
+    website: "https://www.notion.so/",
+    icon: "img/2048.png",
+  }, {
+    challenge: "Play Pacman for coins",
+    website: "https://gmail.com/",
+    icon: "img/pacman.jpg",
+  },]
+  
+  for (task of taskList) {
+      const wrapper = document.createElement("a");
+      wrapper.href = task.website;
+      wrapper.target = "_blank";
+      wrapper.innerHTML = `
+        <div class="task">
+        <img class="item-image" src="${task.icon}" alt="${task.name}">
+        <p class="item-title">${task.challenge}</p>
+        </div>
+      `;
+
+      taskContent.appendChild(wrapper);
+  }
+})();
