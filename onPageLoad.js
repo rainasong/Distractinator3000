@@ -1,24 +1,30 @@
 // [[function, [canRunOnWebsite1, canRunOnWebsite2, ...]], ...]
 const availableTasks = [
-  [redditScroll, ["reddit.com"]],
-  [instagramClick, ["instagram.com"]],
-  [youtubeView, ["youtube.com", "youtu.be"]],
-  [canvasDinoGame, ["canvas.auckland.ac.nz"]],
-  [facebookScroll, ["facebook.com"]],
-  [piazzaSpaceInvaders, ["piazza.com"]],
+  [redditScroll, ["reddit.com"], "free"],
+  [instagramClick, ["instagram.com"], "free"],
+  [youtubeView, ["youtube.com", "youtu.be"], "free"],
+  [canvasDinoGame, ["canvas.auckland.ac.nz"], "Offline Dino"],
+  [facebookScroll, ["facebook.com"], "free"],
+  [piazzaSpaceInvaders, ["piazza.com"], "Space Invaders"],
 ];
 
-const selectedTasks = availableTasks;
-
-// get hostname (without www prefix if it exists)
-const hostname = window.location.hostname.replace(/^www\./, "");
-
-for (const [task, hosts] of availableTasks) {
-  if (hosts.includes(hostname)) {
-    console.log(`Running '${task.name}'`);
-    task();
+(async () => {
+  const shopItems = await getState("popup", "shopItems", []);
+  const selectedTasks = availableTasks.filter(
+    ([, , prereq]) =>
+      prereq === "free" ||
+      shopItems.find((item) => item.name === prereq).purchased
+  );
+  console.log(shopItems);
+  // get hostname (without www prefix if it exists)
+  const hostname = window.location.hostname.replace(/^www\./, "");
+  for (const [task, hosts] of selectedTasks) {
+    if (hosts.includes(hostname)) {
+      console.log(`Running '${task.name}'`);
+      task();
+    }
   }
-}
+})();
 
 /*
   let anyone modify the number of coins we have. super insecure, but this _is_ just a hackathon :)
