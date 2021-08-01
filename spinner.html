@@ -2,13 +2,38 @@
 <html>
   <head>
     <link rel="stylesheet" href="new-popup.css">
+    <link rel="stylesheet" href="spinner.css">
   </head>
   <body>
     
     <nav-bar></nav-bar>
-    
 
+    <div class="content">
+      <div class="spinner-container">
+        <div id="spinner" class="spinner">
+          <div class="spinner-item1">
+            <span class="item1"></span>
+            <span class="item2"></span>
+            <span class="item3"></span>
+            <span class="item4"></span>
+          </div>
+          <div class="spinner-item2">
+            <span class="item1"></span>
+            <span class="item2"></span>
+            <span class="item3"></span>
+            <span class="item4"></span>
+          </div>
+        </div>
+        <button class="spin-btn" id="spin-btn">SPIN</button>
+      </div>
+    </main>
+    
+    <script src="spinner.js"></script>
+    <script src="components/helpers/promises.js"></script>
+    <script src="components/helpers/state.js"></script>
+    <script src="components/helpers/coins.js"></script>
     <script src="popup.js"></script>
     <script src="components.js"></script>
+    <script src="shop.js"></script>
   </body>
 </html>
