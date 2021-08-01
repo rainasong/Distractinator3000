@@ -1,6 +1,6 @@
 let instagramClicks = 0;
 let instagramClickTarget = 10;
-const instagramCoinsAvailableToWin = 10;
+const instagramCoinsAvailableToWin = 100;
 
 function instagramClick() {
   instagramAddDOMElement();
