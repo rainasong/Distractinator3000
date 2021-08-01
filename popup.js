@@ -14,7 +14,6 @@ let popup_shopItems = makePromise();
         if (toggleButton) {
           toggleButton.checked = darkModeActivated;
         }
-        l;
         logoImage.src = "assets/logo.png";
         document.body.parentElement.classList.remove("dark");
       }
