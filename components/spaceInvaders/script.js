@@ -643,6 +643,7 @@ function setupAlienFormation() {
 function reset() {
   aliens = [];
   setupAlienFormation();
+  addCoinsAndShowConfetti(player.score);
   player.reset();
 }
 
